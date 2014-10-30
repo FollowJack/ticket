@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="1602956244">
+    <data-source source="LOCAL" name="PostgreSQL - ticket_db@localhost" uuid="34de45ac-153e-4bbd-9207-5d4a04980478">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/ticket_db</jdbc-url>
+      <user-name>postgres</user-name>
+      <user-password>df98df9adf9bdf9bdf93df93df98</user-password>
+      <schema-pattern>ticket_db.pg_catalog ticket_db.public</schema-pattern>
+      <default-schemas>ticket_db.pg_catalog ticket_db.public</default-schemas>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+

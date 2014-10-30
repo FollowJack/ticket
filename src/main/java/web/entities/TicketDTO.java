@@ -1,5 +1,7 @@
 package web.entities;
 
+import domain.entities.TicketEntity;
+
 import java.util.Date;
 
 /**
@@ -11,17 +13,32 @@ public class TicketDTO {
     private String subject;
     private String body;
     private String owner;
-    private Date createdAt;
+    private Date createdOn;
 
     public TicketDTO(){}
 
-    public TicketDTO(long id, String subject,String body, String owner, Date createdAt) {
+    public TicketDTO(long id, String subject,String body, String owner, Date createdOn) {
         this.id = id;
         this.subject = subject;
         this.body = body;
         this.owner = owner;
-        this.createdAt = createdAt;
+        this.createdOn = createdOn;
     }
+
+    public TicketDTO(
+            TicketEntity entity) {
+        updateModel(entity);
+    }
+
+    private void updateModel(TicketEntity entity) {
+        this.id = entity.getId();
+        this.subject = entity.getSubject();
+        this.body = entity.getBody();
+        this.owner = entity.getOwner();
+        this.createdOn = entity.getCreatedOn();
+
+    }
+
     public long getId() {
         return id;
     }
@@ -46,12 +63,12 @@ public class TicketDTO {
         this.owner = owner;
     }
 
-    public Date getCreatedAt() {
-        return createdAt;
+    public Date getCreatedOn() {
+        return createdOn;
     }
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
+    public void setCreatedOn(Date createdOn) {
+        this.createdOn = createdOn;
     }
 
 

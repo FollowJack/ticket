@@ -2,8 +2,8 @@ package web.controller;
 
 import web.entities.TicketDTO;
 import web.services.ITicketService;
-import web.services.TicketService;
 
+import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.ArrayList;
 
@@ -13,7 +13,8 @@ import java.util.ArrayList;
 @Named
 public class TicketController {
 
-    ITicketService ticketService = new TicketService();
+    @Inject
+    ITicketService ticketService;
 
     public TicketDTO getNewest(){
         TicketDTO result = ticketService.get(1);
