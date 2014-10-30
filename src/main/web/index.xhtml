@@ -6,7 +6,11 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
    <f:view>
-      <h:outputLabel value="Hello, world"/>
-       #{ticketController.getNewest().subject}
+      <h:outputLabel value="Hello, Tickets"/>
+        <br/>
+
+       <ui:repeat value="#{ticketController.getAll()}" var="ticket">
+           #{ticket.subject} <br />
+       </ui:repeat>
    </f:view>
 </html>

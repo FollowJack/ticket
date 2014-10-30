@@ -5,6 +5,7 @@ import web.services.ITicketService;
 import web.services.TicketService;
 
 import javax.inject.Named;
+import java.util.ArrayList;
 
 /**
  * Created by Deniel on 30.10.2014.
@@ -16,6 +17,12 @@ public class TicketController {
 
     public TicketDTO getNewest(){
         TicketDTO result = ticketService.get(1);
+        return result;
+    }
+
+    public ArrayList<TicketDTO> getAll(){
+
+        ArrayList<TicketDTO> result = ticketService.get();
         return result;
     }
 }
