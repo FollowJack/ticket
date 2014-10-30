@@ -1,5 +1,9 @@
 package web.controller;
 
+import web.entities.TicketDTO;
+import web.services.ITicketService;
+import web.services.TicketService;
+
 import javax.inject.Named;
 
 /**
@@ -8,8 +12,10 @@ import javax.inject.Named;
 @Named
 public class TicketController {
 
-    public String sayHello(){
-        return "Hello from controller.";
-    }
+    ITicketService ticketService = new TicketService();
 
+    public TicketDTO getNewest(){
+        TicketDTO result = ticketService.get(1);
+        return result;
+    }
 }
