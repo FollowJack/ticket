@@ -6,11 +6,38 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
    <f:view>
-      <h:outputLabel value="Hello, Tickets"/>
+      <h2>Hello, Tickets"</h2>
         <br/>
 
-       <ui:repeat value="#{ticketController.getAll()}" var="ticket">
-           #{ticket.subject} <br />
-       </ui:repeat>
+       <h:dataTable value="#{ticketController.getAll()}" var="ticket">
+
+           <h:column>
+               <!-- column header -->
+               <f:facet name="header">ID</f:facet>
+               <!-- row record -->
+               #{ticket.id}
+           </h:column>
+
+           <h:column>
+               <f:facet name="header">Subject</f:facet>
+               #{ticket.subject}
+           </h:column>
+
+           <h:column>
+               <f:facet name="header">Body</f:facet>
+               #{ticket.body}
+           </h:column>
+
+           <h:column>
+               <f:facet name="header">Owner</f:facet>
+               #{ticket.owner}
+           </h:column>
+
+           <h:column>
+               <f:facet name="header">Created at</f:facet>
+               #{ticket.createdAt}
+           </h:column>
+
+       </h:dataTable>
    </f:view>
 </html>
