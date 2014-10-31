@@ -27,9 +27,6 @@ public class TicketRepository implements ITicketRepository{
     public TicketEntity find(long id) {
         TicketEntity result = entityManager.find(TicketEntity.class,id);
         return result;
-//        TypedQuery<TicketEntity> t = entityManager.createQuery("SELECT t FROM TicketEntity t", TicketEntity.class);
-//        TicketEntity result = t.getResultList().get(0);
-//        return result;
     }
 
     @Override
