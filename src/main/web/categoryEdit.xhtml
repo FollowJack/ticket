@@ -1,0 +1,24 @@
+    <ui:composition
+            template="template/layout.xhtml"
+            xmlns:f="http://xmlns.jcp.org/jsf/core"
+            xmlns="http://www.w3.org/1999/xhtml"
+            xmlns:h="http://java.sun.com/jsf/html"
+            xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+
+    <ui:define name="content">
+
+            <h2>Edit Category: #{categoryManager.categoryToEdit.id} - #{categoryManager.categoryToEdit.name}</h2>
+            <br/>
+
+        <h:form id="form">
+            <h:panelGrid id="grid" columns="2">
+                <h:outputLabel value="Name:" for="name"/>
+                <h:inputText id="name" value="#{categoryManager.categoryToEdit.name}"/>
+            </h:panelGrid>
+            <h:commandButton id="save" value="Save" action="#{categoryManager.save(categoryManager.categoryToEdit)}"/>
+        </h:form>
+
+    </ui:define>
+    </ui:composition>

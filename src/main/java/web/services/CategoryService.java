@@ -1,12 +1,12 @@
 package web.services;
 
 import domain.entities.CategoryEntity;
-import domain.entities.TicketEntity;
 import domain.repositories.ICategoryRepository;
 import web.entities.CategoryDTO;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +14,7 @@ import java.util.List;
  * Created by Deniel on 03.11.2014.
  */
 @RequestScoped
-public class CategoryService implements ICategoryService{
+public class CategoryService implements ICategoryService,Serializable{
 
     @EJB(mappedName = "CategoryRepository")
     private ICategoryRepository categoryRepository;

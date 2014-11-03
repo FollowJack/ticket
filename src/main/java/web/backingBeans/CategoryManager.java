@@ -1,10 +1,8 @@
 package web.backingBeans;
 
 import web.entities.CategoryDTO;
-import web.entities.TicketDTO;
 import web.infrastructure.Navigator;
 import web.services.ICategoryService;
-import web.services.ITicketService;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -38,7 +36,7 @@ public class CategoryManager implements Serializable{
     public String save(CategoryDTO category) {
 
         if (categoryService.save(category))
-            return Navigator.TICKET_LIST;
+            return Navigator.CATEGORY_LIST;
 
         categoryToEdit = category;
 
