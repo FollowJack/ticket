@@ -11,4 +11,6 @@ public interface ITicketService {
 
     public TicketDTO get(long id);
     public ArrayList<TicketDTO> get();
+    public boolean save(TicketDTO ticket);
+
 }

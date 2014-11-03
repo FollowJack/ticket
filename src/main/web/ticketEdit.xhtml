@@ -1,0 +1,36 @@
+    <ui:composition
+            template="template/layout.xhtml"
+            xmlns:f="http://xmlns.jcp.org/jsf/core"
+            xmlns="http://www.w3.org/1999/xhtml"
+            xmlns:h="http://java.sun.com/jsf/html"
+            xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+
+    <ui:define name="content">
+
+            <h2>Edit Ticket: #{ticketManager.ticketToEdit.id} - #{ticketManager.ticketToEdit.subject}</h2>
+            <br/>
+
+        <h:form id="form">
+            <h:panelGrid id="grid" columns="2">
+                <h:outputLabel value="Subject:" for="subject"/>
+                <h:inputText id="subject" value="#{ticketManager.ticketToEdit.subject}"/>
+
+                <h:outputLabel value="Body:" for="body"/>
+                <h:inputText id="body" value="#{ticketManager.ticketToEdit.body}"/>
+
+                <h:outputLabel value="Owner:" for="owner"/>
+                <h:inputText id="owner" value="#{ticketManager.ticketToEdit.owner}"/>
+
+                <h:outputLabel value="Created on:" for="createdOn"/>
+                <h:inputText id="createdOn" value="#{ticketManager.ticketToEdit.createdOn}"><f:convertDateTime pattern="dd.MM.yyyy" /></h:inputText>
+
+                <h:outputLabel value="Last modified on:" for="modifiedOn"/>
+                <h:outputLabel id="modifiedOn" value="#{ticketManager.ticketToEdit.modifiedOn}"/>
+            </h:panelGrid>
+            <h:commandButton id="save" value="Save" action="#{ticketManager.save(ticketManager.ticketToEdit)}"/>
+        </h:form>
+
+    </ui:define>
+    </ui:composition>

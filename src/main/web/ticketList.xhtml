@@ -9,16 +9,18 @@
 
     <ui:define name="content">
 
-            <h2>Hello, Tickets"</h2>
-            <br/>
-
-            <h:dataTable value="#{ticketController.getAll()}" var="ticket">
+            <h:dataTable value="#{ticketManager.getAll()}" var="ticket">
 
                 <h:column>
                     <!-- column header -->
-                    <f:facet name="header">ID</f:facet>
-                    <!-- row record -->
-                    #{ticket.id}
+                        <f:facet name="header">ID</f:facet>
+                     <h:form>
+                        <!-- row record -->
+                        <h:commandLink action="#{ticketManager.edit(ticket.id)}">
+                            <!--<f:param name="id" value="#{ticket.id}" />-->
+                            #{ticket.id}
+                        </h:commandLink>
+                    </h:form>
                 </h:column>
 
                 <h:column>

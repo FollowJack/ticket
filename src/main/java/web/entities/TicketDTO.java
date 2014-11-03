@@ -14,6 +14,7 @@ public class TicketDTO {
     private String body;
     private String owner;
     private Date createdOn;
+    private Date modifiedOn;
 
     public TicketDTO(){}
 
@@ -36,7 +37,14 @@ public class TicketDTO {
         this.body = entity.getBody();
         this.owner = entity.getOwner();
         this.createdOn = entity.getCreatedOn();
+        this.modifiedOn = entity.getModifiedOn();
 
+    }
+    public void updateEntity(TicketEntity entity) {
+        entity.setBody(body);
+        entity.setOwner(owner);
+        entity.setModifiedOn(new java.sql.Date(new Date().getTime()));
+        entity.setSubject(subject);
     }
 
     public long getId() {
@@ -79,4 +87,13 @@ public class TicketDTO {
     public void setBody(String body) {
         this.body = body;
     }
+
+    public Date getModifiedOn() {
+        return modifiedOn;
+    }
+
+    public void setModifiedOn(Date modifiedOn) {
+        this.modifiedOn = modifiedOn;
+    }
+
 }

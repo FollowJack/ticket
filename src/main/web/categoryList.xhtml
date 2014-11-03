@@ -1,0 +1,34 @@
+    <ui:composition
+            template="template/layout.xhtml"
+            xmlns:f="http://xmlns.jcp.org/jsf/core"
+            xmlns="http://www.w3.org/1999/xhtml"
+            xmlns:h="http://java.sun.com/jsf/html"
+            xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+
+    <ui:define name="content">
+
+            <h:dataTable value="#{categoryManager.getAll()}" var="category">
+
+                <h:column>
+                    <!-- column header -->
+                        <f:facet name="header">ID</f:facet>
+                     <h:form>
+                        <!-- row record -->
+                        <h:commandLink action="#{categoryManager.edit(category.id)}">
+                            <!--<f:param name="id" value="#{category.id}" />-->
+                            #{category.id}
+                        </h:commandLink>
+                    </h:form>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Name</f:facet>
+                    #{category.name}
+                </h:column>
+
+            </h:dataTable>
+
+    </ui:define>
+    </ui:composition>

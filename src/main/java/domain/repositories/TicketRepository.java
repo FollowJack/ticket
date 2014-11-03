@@ -60,7 +60,7 @@ public class TicketRepository implements ITicketRepository{
         if(ticketToUpdate == null)
             return false;
 
-        entityManager.merge(ticketToUpdate);
+        entityManager.merge(ticket);
 
         return true;
     }
