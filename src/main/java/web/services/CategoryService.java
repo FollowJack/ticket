@@ -47,6 +47,14 @@ public class CategoryService implements ICategoryService,Serializable{
 
     @Override
     public boolean save(CategoryDTO category) {
+
+        if(category.getId() == 0){
+            CategoryEntity entityToSave = new CategoryEntity();
+            entityToSave.setName(category.getName());
+            categoryRepository.add(entityToSave);
+            return true;
+        }
+
         CategoryEntity entity = categoryRepository.find(category.getId());
         category.updateEntity(entity);
 

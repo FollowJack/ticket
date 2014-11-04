@@ -14,6 +14,8 @@ public class CategoryDTO {
         updateModel(entity);
     }
 
+    public CategoryDTO() { }
+
     private void updateModel(CategoryEntity entity) {
         this.id = entity.getId();
         this.name = entity.getName();

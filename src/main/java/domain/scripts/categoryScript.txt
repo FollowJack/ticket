@@ -1,0 +1,7 @@
+CREATE TABLE public.category
+(
+    id int PRIMARY KEY NOT NULL,
+    name text NOT NULL
+);
+ALTER TABLE public.category
+ ADD CONSTRAINT unique_id UNIQUE (id);

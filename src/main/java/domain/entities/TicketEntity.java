@@ -19,6 +19,7 @@ public class TicketEntity implements Serializable{
     private CategoryEntity categoryByCategoryId;
 
     @Id
+    @GeneratedValue
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
     public long getId() {
         return id;

@@ -13,6 +13,7 @@ public class CategoryEntity implements Serializable {
     private String name;
 
     @Id
+    @GeneratedValue
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
     public long getId() {
         return id;

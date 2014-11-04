@@ -19,7 +19,7 @@ public class CategoryManager implements Serializable{
     @Inject
     ICategoryService categoryService;
 
-
+    private boolean isNewCategory;
     private CategoryDTO categoryToEdit;
 
     public ArrayList<CategoryDTO> getAll() {
@@ -28,6 +28,7 @@ public class CategoryManager implements Serializable{
     }
 
     public String edit(long id) {
+        isNewCategory = false;
         categoryToEdit = categoryService.get(id);
 
         return Navigator.CATEGORY_EDIT;
@@ -44,6 +45,12 @@ public class CategoryManager implements Serializable{
 
     }
 
+    public String create(){
+        isNewCategory = true;
+        categoryToEdit = new CategoryDTO();
+        return Navigator.CATEGORY_EDIT;
+    }
+
     //---- Getter & Setter -----
     public void setCategoryToEdit(CategoryDTO categoryToEdit) {
         this.categoryToEdit = categoryToEdit;
@@ -51,5 +58,13 @@ public class CategoryManager implements Serializable{
 
     public CategoryDTO getCategoryToEdit() {
         return categoryToEdit;
+    }
+
+    public boolean isNewCategory() {
+        return isNewCategory;
+    }
+
+    public void setNewCategory(boolean isNewCategory) {
+        this.isNewCategory = isNewCategory;
     }
 }
