@@ -9,10 +9,8 @@ import java.util.ArrayList;
  */
 public interface ICategoryService {
 
-
     public ArrayList<CategoryDTO> get();
-
     public CategoryDTO get(long id);
-
     public boolean save(CategoryDTO category);
+
 }

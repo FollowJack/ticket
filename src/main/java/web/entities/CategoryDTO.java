@@ -2,12 +2,16 @@ package web.entities;
 
 import domain.entities.CategoryEntity;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 /**
  * Created by Deniel on 03.11.2014.
  */
 public class CategoryDTO {
 
     private long id;
+    @NotNull @Size(min = 3,max = 200)
     private String name;
 
     public CategoryDTO(CategoryEntity entity) {
@@ -40,5 +44,11 @@ public class CategoryDTO {
     public void updateEntity(CategoryEntity entity) {
         entity.setId(id);
         entity.setName(name);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        CategoryDTO category = (CategoryDTO)obj;
+        return category.id == this.id;
     }
 }

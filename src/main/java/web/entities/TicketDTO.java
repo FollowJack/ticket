@@ -1,7 +1,10 @@
 package web.entities;
 
+import domain.entities.CategoryEntity;
 import domain.entities.TicketEntity;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 /**
@@ -10,11 +13,18 @@ import java.util.Date;
 public class TicketDTO {
 
     private long id;
+    @NotNull @Size(min = 3,max = 150)
     private String subject;
+    @NotNull @Size(min = 3,max = 2000)
     private String body;
+    @NotNull @Size(min = 3,max = 150)
     private String owner;
     private Date createdOn;
     private Date modifiedOn;
+
+
+
+    private CategoryDTO category;
 
     public TicketDTO(){}
 
@@ -24,6 +34,7 @@ public class TicketDTO {
         this.body = body;
         this.owner = owner;
         this.createdOn = createdOn;
+        this.category = new CategoryDTO();
     }
 
     public TicketDTO(
@@ -38,13 +49,21 @@ public class TicketDTO {
         this.owner = entity.getOwner();
         this.createdOn = entity.getCreatedOn();
         this.modifiedOn = entity.getModifiedOn();
+        this.category = new CategoryDTO(entity.getCategoryByCategoryId());
 
     }
     public void updateEntity(TicketEntity entity) {
+        createdOn = createdOn == null ? new java.sql.Date(new java.util.Date().getTime()) : createdOn;
+
         entity.setBody(body);
         entity.setOwner(owner);
-        entity.setModifiedOn(new java.sql.Date(new Date().getTime()));
+        entity.setCreatedOn(new java.sql.Date(createdOn.getTime()));
+        entity.setModifiedOn(new java.sql.Date(new java.util.Date().getTime()));
         entity.setSubject(subject);
+
+        CategoryEntity categoryEntity = new CategoryEntity();
+        category.updateEntity(categoryEntity);
+        entity.setCategoryByCategoryId(categoryEntity);
     }
 
     public long getId() {
@@ -96,4 +115,11 @@ public class TicketDTO {
         this.modifiedOn = modifiedOn;
     }
 
+    public CategoryDTO getCategory() {
+        return category;
+    }
+
+    public void setCategory(CategoryDTO category) {
+        this.category = category;
+    }
 }

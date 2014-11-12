@@ -36,9 +36,7 @@ public class TicketRepository implements ITicketRepository{
 
         entityManager.persist(ticket);
 
-        TicketEntity result = find(ticket.getId());
-
-        return result;
+        return ticket;
     }
 
     @Override

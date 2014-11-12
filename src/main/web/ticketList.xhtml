@@ -9,7 +9,7 @@
 
     <ui:define name="content">
 
-            <h:dataTable value="#{ticketManager.getAll()}" var="ticket">
+            <h:dataTable value="#{ticketManager.tickets}" var="ticket" styleClass="table">
 
                 <h:column>
                     <!-- column header -->
@@ -43,7 +43,20 @@
                     #{ticket.createdOn}
                 </h:column>
 
-            </h:dataTable>
+                <h:column>
+                    <f:facet name="header">Category</f:facet>
+                    #{ticket.category.name}
+                </h:column>
 
+                <h:column>
+                    <h:form>
+                        <h:commandButton value="X" action="#{ticketManager.delete(ticket.id)}" />
+                    </h:form>
+                </h:column>
+
+            </h:dataTable>
+        <h:form>
+            <h:commandButton value="New" action="#{ticketManager.create()}" styleClass="btn btn-primary"/>
+        </h:form>
     </ui:define>
     </ui:composition>

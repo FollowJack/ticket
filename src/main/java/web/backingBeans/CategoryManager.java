@@ -51,6 +51,7 @@ public class CategoryManager implements Serializable{
         return Navigator.CATEGORY_EDIT;
     }
 
+
     //---- Getter & Setter -----
     public void setCategoryToEdit(CategoryDTO categoryToEdit) {
         this.categoryToEdit = categoryToEdit;

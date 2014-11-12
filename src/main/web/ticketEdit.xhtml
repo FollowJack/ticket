@@ -1,36 +1,61 @@
-    <ui:composition
-            template="template/layout.xhtml"
-            xmlns:f="http://xmlns.jcp.org/jsf/core"
-            xmlns="http://www.w3.org/1999/xhtml"
-            xmlns:h="http://java.sun.com/jsf/html"
-            xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition
+        template="template/layout.xhtml"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:c="http://java.sun.com/jsp/jstl/core">
 
 
 
     <ui:define name="content">
 
+        <c:choose>
+            <c:when test="#{ticketManager.newTicket}">
+                <h2>Create new ticket</h2>
+            </c:when>
+            <c:otherwise>
             <h2>Edit Ticket: #{ticketManager.ticketToEdit.id} - #{ticketManager.ticketToEdit.subject}</h2>
+            </c:otherwise>
+        </c:choose>
             <br/>
 
-        <h:form id="form">
-            <h:panelGrid id="grid" columns="2">
-                <h:outputLabel value="Subject:" for="subject"/>
-                <h:inputText id="subject" value="#{ticketManager.ticketToEdit.subject}"/>
+        <h:form id="formList" class="form-horizontal" role="form">
 
-                <h:outputLabel value="Body:" for="body"/>
-                <h:inputText id="body" value="#{ticketManager.ticketToEdit.body}"/>
-
-                <h:outputLabel value="Owner:" for="owner"/>
-                <h:inputText id="owner" value="#{ticketManager.ticketToEdit.owner}"/>
-
-                <h:outputLabel value="Created on:" for="createdOn"/>
-                <h:inputText id="createdOn" value="#{ticketManager.ticketToEdit.createdOn}"><f:convertDateTime pattern="dd.MM.yyyy" /></h:inputText>
-
-                <h:outputLabel value="Last modified on:" for="modifiedOn"/>
-                <h:outputLabel id="modifiedOn" value="#{ticketManager.ticketToEdit.modifiedOn}"/>
-            </h:panelGrid>
-            <h:commandButton id="save" value="Save" action="#{ticketManager.save(ticketManager.ticketToEdit)}"/>
+            <div class="form-group">
+                <h:outputLabel value="Subject:" for="subject" styleClass="col-sm-2 control-label"/>
+                <h:inputText id="subject" value="#{ticketManager.ticketToEdit.subject}" styleClass="col-sm-5" />
+                <h:message id="messageName" for="subject" style="color:red" styleClass="col-sm-5"/>
+            </div>
+            <div class="form-group">
+                <h:outputLabel value="Body:" for="body" styleClass="col-sm-2 control-label"/>
+                <h:inputText id="body" value="#{ticketManager.ticketToEdit.body}" styleClass="col-sm-5" />
+                <h:message id="messageBody" for="body" style="color:red" styleClass="col-sm-5" />
+            </div>
+            <div class="form-group">
+                <h:outputLabel value="Owner:" for="owner" styleClass="col-sm-2 control-label"/>
+                <h:inputText id="owner" value="#{ticketManager.ticketToEdit.owner}" styleClass="col-sm-5" />
+                <h:message id="messageOwner" for="owner" style="color:red" styleClass="col-sm-5" />
+            </div>
+            <div class="form-group">
+                <h:outputLabel value="Created on:" for="createdOn" styleClass="col-sm-2 control-label"/>
+                <h:outputText id="createdOn" value="#{ticketManager.ticketToEdit.createdOn}" styleClass="col-sm-5" ><f:convertDateTime pattern="dd.MM.yyyy" /></h:outputText>
+                <h:message id="messageCreateOn" for="createdOn" style="color:red" styleClass="col-sm-5" />
+            </div>
+            <div class="form-group">
+                <h:outputLabel value="Last modified on:" for="modifiedOn" styleClass="col-sm-2 control-label"/>
+                <h:outputText id="modifiedOn" value="#{ticketManager.ticketToEdit.modifiedOn}" styleClass="col-sm-5" ><f:convertDateTime pattern="dd.MM.yyyy" /></h:outputText>
+                <h:message id="messageModifiedOn" for="modifiedOn" style="color:red" styleClass="col-sm-5" />
+            </div>
+            <div class="form-group">
+                <h:outputLabel value="Category:" for="modifiedOn" styleClass="col-sm-2 control-label"/>
+                <h:selectOneMenu value="#{ticketManager.selectedCategory}" converter="#{categoryConverter}" styleClass="col-sm-2">
+                    <f:selectItems value="#{ticketManager.categories}"
+                                   var="category" itemLabel="#{category.name}" itemValue="#{category}"/>
+                </h:selectOneMenu>
+            </div>
+            <div class="form-group">
+            <h:commandButton id="save" value="Save" action="#{ticketManager.save()}" class="btn btn-primary"/>
+        </div>
         </h:form>
-
     </ui:define>
     </ui:composition>

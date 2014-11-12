@@ -9,7 +9,7 @@
 
     <ui:define name="content">
 
-            <h:dataTable value="#{categoryManager.getAll()}" var="category">
+            <h:dataTable value="#{categoryManager.getAll()}" var="category" styleClass="table">
 
                 <h:column>
                     <!-- column header -->
@@ -29,8 +29,11 @@
                 </h:column>
 
             </h:dataTable>
+        <div class="form-group">
+            <h:button value="New" type="button" outcome="#{categoryManager.create()}" styleClass="btn btn-primary"/>
+        </div>
 
-        <h:button value="New" type="button" outcome="#{categoryManager.create()}" />
+
 
     </ui:define>
     </ui:composition>

@@ -47,10 +47,26 @@ public class TicketService implements ITicketService,Serializable {
 
     @Override
     public boolean save(TicketDTO ticket) {
+
+        if(ticket.getId() == 0){
+            TicketEntity ticketToSave = new TicketEntity();
+            ticket.updateEntity(ticketToSave);
+            ticketRepository.add(ticketToSave);
+            return true;
+        }
+
         TicketEntity entity = ticketRepository.find(ticket.getId());
         ticket.updateEntity(entity);
 
         boolean result = ticketRepository.update(entity);
         return result;
+    }
+
+    @Override
+    public void delete(long id) {
+        if(id == 0)
+            return;
+
+        ticketRepository.remove(id);
     }
 }

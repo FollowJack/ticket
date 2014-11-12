@@ -4,33 +4,45 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets" xml:lang="en" lang="en">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui"
+      xml:lang="en" lang="en">
 
 <h:head>
     <!--<h:outputStylesheet name="" library="css" />-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>TManager</title>
+    <h:outputStylesheet library="css" name="layout.css"  />
+    <!-- Bootstrap -->
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet"/>-->
 </h:head>
 
-<h:body>
-
-
-        <div id="header">
+<h:body style="padding: 60px;">
+       <div id="header">
             <ui:insert name="header" >
                 <ui:include src="/template/header.xhtml" />
             </ui:insert>
         </div>
 
-        <div id="content">
+    <b:container>
             <ui:insert name="content" >
                <ui:include src="/ticketList.xhtml" />
             </ui:insert>
-        </div>
 
-        <div id="footer">
+        <div id="footer" class="footer col-md-2 col-md-offset-5">
             <ui:insert name="footer" >
                 <ui:include src="/template/footer.xhtml" />
             </ui:insert>
         </div>
+    </b:container>
 
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="application/javascript"></script>
+    <script src="js/bootstrap.min.js" type="application/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="application/javascript"></script>
+    <script src="../../dist/js/bootstrap.min.js" type="application/javascript"></script>
+
+-->
 
 </h:body>
 </html>

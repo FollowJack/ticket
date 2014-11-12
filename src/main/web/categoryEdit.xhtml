@@ -19,12 +19,17 @@
         </c:choose>
             <br/>
 
-        <h:form id="form">
-            <h:panelGrid id="grid" columns="2">
-                <h:outputLabel value="Name:" for="name"/>
-                <h:inputText id="name" value="#{categoryManager.categoryToEdit.name}"/>
-            </h:panelGrid>
-            <h:commandButton id="save" value="Save" action="#{categoryManager.save(categoryManager.categoryToEdit)}"/>
+
+        <h:form id="form" class="form-horizontal" role="form">
+            <div class="form-group">
+                <h:outputLabel value="Name:" for="name"  styleClass="col-sm-2 control-label"/>
+                <h:inputText id="name" value="#{categoryManager.categoryToEdit.name}"  styleClass="col-sm-5" />
+                <h:message id="messageName" for="name" style="color:red"  styleClass="col-sm-5"/>
+            </div>
+
+            <div class="form-group">
+                <h:commandButton id="save" value="Save" action="#{categoryManager.save(categoryManager.categoryToEdit)}" styleClass="btn btn-primary"/>
+            </div>
         </h:form>
 
     </ui:define>
