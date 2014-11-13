@@ -1527,10 +1527,31 @@
       <column name="viewowner" sqlType="name" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
       <column name="definition" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
     </table>
+    <table name="category" schema="public" catalog="ticket_db" type="TABLE">
+      <column name="id" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="text" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="category_pkey" columns="id"/>
+      <exported-key name="fk_ticket_category_id" table="ticket" schema="public" catalog="ticket_db" columns="category_id"/>
+      <exported-key name="ticket_category_id_fkey" table="ticket" schema="public" catalog="ticket_db" columns="category_id"/>
+      <index name="unique_name" unique="true" columns="name"/>
+    </table>
     <table name="sequence" schema="public" catalog="ticket_db" type="TABLE">
       <column name="seq_name" sqlType="varchar" precision="50" scale="0" nullable="false" jdbcType="12"/>
       <column name="seq_count" sqlType="numeric" precision="38" scale="0" nullable="true" jdbcType="2"/>
       <primary-key name="sequence_pkey" columns="seq_name"/>
+    </table>
+    <table name="ticket" schema="public" catalog="ticket_db" type="TABLE">
+      <column name="id" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="subject" sqlType="text" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="owner" sqlType="text" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="body" sqlType="text" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_on" sqlType="date" precision="13" scale="0" nullable="false" jdbcType="91"/>
+      <column name="modified_on" sqlType="date" precision="13" scale="0" nullable="true" jdbcType="91"/>
+      <column name="category_id" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="ticket_pkey" columns="id"/>
+      <foreign-key name="fk_ticket_category_id" columns="category_id" ref-table="category" ref-schema="public" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="ticket_category_id_fkey" columns="category_id" ref-table="category" ref-schema="public" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="unique_id" unique="true" columns="id"/>
     </table>
     <procedure name="RI_FKey_cascade_del" schema="pg_catalog" catalog="ticket_db" type="2" remarks="cmVmZXJlbnRpYWwgaW50ZWdyaXR5IE9OIERFTEVURSBDQVNDQURF">
       <prototype>
@@ -20279,6 +20300,7 @@
       <column name="name" sqlType="text" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="category_pkey" columns="id"/>
       <exported-key name="ticket_category_id_fkey" table="ticket" schema="public" catalog="ticket_db" columns="category_id"/>
+      <index name="unique_name" unique="true" columns="name"/>
     </table>
     <table name="sequence" schema="public" catalog="ticket_db" type="TABLE">
       <column name="seq_name" sqlType="varchar" precision="50" scale="0" nullable="false" jdbcType="12"/>

@@ -1,6 +1,6 @@
 package web.services;
 
-import web.entities.TicketDTO;
+import web.dtos.TicketDTO;
 
 import java.util.ArrayList;
 

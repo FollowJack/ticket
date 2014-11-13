@@ -26,6 +26,9 @@
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
       </configuration>
     </facet>
+    <facet type="WebServicesClient" name="WebServices Client">
+      <configuration ws.engine="Glassfish / JAX-WS 2.2 RI / Metro 1.X / JWSDP 2.2" />
+    </facet>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/target/classes" />
@@ -41,6 +44,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Maven: org.glassfish.main.extras:glassfish-embedded-all:4.1" level="project" />
     <orderEntry type="library" name="BootsFaces-OSP-dist-0.5.0" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.main.extras:glassfish-embedded-all:4.1" level="project" />
   </component>
 </module>
 

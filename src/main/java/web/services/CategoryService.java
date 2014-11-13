@@ -2,7 +2,7 @@ package web.services;
 
 import domain.entities.CategoryEntity;
 import domain.repositories.ICategoryRepository;
-import web.entities.CategoryDTO;
+import web.dtos.CategoryDTO;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;

@@ -2,7 +2,7 @@ package web.services;
 
 import domain.entities.TicketEntity;
 import domain.repositories.ITicketRepository;
-import web.entities.TicketDTO;
+import web.dtos.TicketDTO;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;

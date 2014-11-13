@@ -1,6 +1,6 @@
 package web.services;
 
-import web.entities.CategoryDTO;
+import web.dtos.CategoryDTO;
 
 import java.util.ArrayList;
 

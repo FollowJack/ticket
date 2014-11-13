@@ -1,7 +1,7 @@
 package web.backingBeans;
 
-import web.entities.CategoryDTO;
-import web.entities.TicketDTO;
+import web.dtos.CategoryDTO;
+import web.dtos.TicketDTO;
 import web.infrastructure.Navigator;
 import web.services.ICategoryService;
 import web.services.ITicketService;

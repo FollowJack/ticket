@@ -1,6 +1,6 @@
 package web.backingBeans;
 
-import web.entities.CategoryDTO;
+import web.dtos.CategoryDTO;
 import web.infrastructure.Navigator;
 import web.services.ICategoryService;
 

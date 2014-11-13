@@ -2,6 +2,7 @@ package domain.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collection;
 
 /**
  * Created by Deniel on 30.10.2014.
@@ -11,6 +12,11 @@ import java.io.Serializable;
 public class CategoryEntity implements Serializable {
     private long id;
     private String name;
+    private Collection<TicketEntity> ticketsById;
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     @Id
     @GeneratedValue
@@ -24,7 +30,7 @@ public class CategoryEntity implements Serializable {
     }
 
     @Basic
-    @Column(name = "name", nullable = true, insertable = true, updatable = true, length = 2147483647)
+    @Column(name = "name", nullable = false, insertable = true, updatable = true, length = 2147483647)
     public String getName() {
         return name;
     }
@@ -51,5 +57,14 @@ public class CategoryEntity implements Serializable {
         int result = (int) (id ^ (id >>> 32));
         result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
+    }
+
+    @OneToMany(mappedBy = "categoryByCategoryId")
+    public Collection<TicketEntity> getTicketsById() {
+        return ticketsById;
+    }
+
+    public void setTicketsById(Collection<TicketEntity> ticketsById) {
+        this.ticketsById = ticketsById;
     }
 }

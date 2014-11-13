@@ -1,4 +1,4 @@
-package web.entities;
+package web.dtos;
 
 import domain.entities.CategoryEntity;
 

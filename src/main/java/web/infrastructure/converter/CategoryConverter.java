@@ -1,6 +1,6 @@
 package web.infrastructure.converter;
 
-import web.entities.CategoryDTO;
+import web.dtos.CategoryDTO;
 import web.services.ICategoryService;
 
 import javax.faces.component.UIComponent;

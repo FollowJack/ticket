@@ -18,6 +18,10 @@ public class TicketEntity implements Serializable{
     private String body;
     private CategoryEntity categoryByCategoryId;
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Id
     @GeneratedValue
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
@@ -30,7 +34,7 @@ public class TicketEntity implements Serializable{
     }
 
     @Basic
-    @Column(name = "subject", nullable = true, insertable = true, updatable = true, length = 2147483647)
+    @Column(name = "subject", nullable = false, insertable = true, updatable = true, length = 2147483647)
     public String getSubject() {
         return subject;
     }
@@ -108,7 +112,7 @@ public class TicketEntity implements Serializable{
     }
 
     @ManyToOne
-    @JoinColumn(name = "category_id", referencedColumnName = "id")
+    @JoinColumns({@JoinColumn(name = "category_id", referencedColumnName = "id"), @JoinColumn(name = "category_id", referencedColumnName = "id", nullable = false)})
     public CategoryEntity getCategoryByCategoryId() {
         return categoryByCategoryId;
     }
