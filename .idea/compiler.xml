@@ -22,7 +22,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="ticket" />
+        <module name="TManager" />
+        <module name="TMRest" />
       </profile>
     </annotationProcessing>
   </component>

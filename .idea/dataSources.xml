@@ -6,20 +6,13 @@
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/ticket_db</jdbc-url>
-      <user-name>postgres</user-name>
-      <user-password>df98df9adf9bdf9bdf93df93df98</user-password>
-      <schema-pattern>ticket_db.pg_catalog ticket_db.public</schema-pattern>
-      <default-schemas>ticket_db.pg_catalog ticket_db.public</default-schemas>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="ticketPersistenceUnit" uuid="0a8b9143-190c-4460-9dbd-e45054bb5acc">
       <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/ticket_db</jdbc-url>
-      <user-name>postgres</user-name>
-      <user-password>df98df9adf9bdf9bdf93df93df98</user-password>
       <libraries />
     </data-source>
   </component>
 </project>
-

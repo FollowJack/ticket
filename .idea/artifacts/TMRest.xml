@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="TMRest">
+    <output-path>$PROJECT_DIR$/out/artifacts/TMRest</output-path>
+    <root id="archive" name="TMRest.war">
+      <element id="javaee-facet-resources" facet="TMRest/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="TMRest" />
+          <element id="module-output" name="TManager" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="module" name="Maven: com.sun:tools-jar:1" module-name="TManager" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
