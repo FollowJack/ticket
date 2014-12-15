@@ -7,6 +7,7 @@
         <element id="directory" name="classes">
           <element id="module-output" name="TMRest" />
           <element id="module-output" name="TManager" />
+          <element id="module-output" name="TMModel" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="module" name="Maven: com.sun:tools-jar:1" module-name="TManager" />

@@ -1,6 +1,7 @@
 package services;
 
-import dtos.CategoryRestDTO;
+
+import rest.dtos.CategoryRestDTO;
 
 import javax.ws.rs.core.Response;
 import java.util.List;

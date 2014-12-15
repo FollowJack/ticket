@@ -11,6 +11,7 @@
 
     <modules>
         <module>TManager</module>
+        <module>TMModel</module>
         <module>TMRest</module>
     </modules>
 

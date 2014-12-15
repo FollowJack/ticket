@@ -23,9 +23,9 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="TManager" />
+        <module name="TMModel" />
         <module name="TMRest" />
       </profile>
     </annotationProcessing>
   </component>
 </project>
-

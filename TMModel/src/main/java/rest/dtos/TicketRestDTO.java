@@ -1,4 +1,4 @@
-package dtos;
+package rest.dtos;
 
 import domain.entities.CategoryEntity;
 import domain.entities.TicketEntity;

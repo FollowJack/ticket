@@ -2,7 +2,7 @@ package services;
 
 import domain.entities.TicketEntity;
 import domain.repositories.ITicketRepository;
-import dtos.TicketRestDTO;
+import rest.dtos.TicketRestDTO;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;

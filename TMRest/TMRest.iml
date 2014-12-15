@@ -29,6 +29,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="GlassFish 4.1.0" level="application_server_libraries" />
     <orderEntry type="module" module-name="TManager" scope="PROVIDED" />
+    <orderEntry type="module" module-name="TMModel" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.glassfish.main.extras:glassfish-embedded-all:4.1" level="project" />
     <orderEntry type="module-library">
       <library name="Maven: com.sun:tools-jar:1">

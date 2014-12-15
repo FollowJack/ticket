@@ -1,6 +1,7 @@
 package services;
 
-import dtos.TicketRestDTO;
+
+import rest.dtos.TicketRestDTO;
 
 import javax.ws.rs.core.Response;
 import java.util.List;
